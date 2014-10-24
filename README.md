@@ -1,26 +1,28 @@
---===Flask==--
+## Мини-сайт рейтинг востребованности специалистов на Джинне
 
-virtualenv ENV
-cd ENV
-source bin/activate
-pip install -r req.txt
+### Flask
+
+* virtualenv ENV
+* cd ENV
+* source bin/activate
+* pip install -r req.txt
 
 
---===Angularjs + node==--
+### Angularjs + node
 
-sudo apt-get update
-sudo apt-get install nodejs
-sudo apt-get install npm
-npm install
-npm install -g bower
-bower install
-npm install http-server
+* sudo apt-get update
+* sudo apt-get install nodejs
+* sudo apt-get install npm
+* npm install
+* npm install -g bower
+* bower install
+* npm install http-server
 
---===Run frontend==--
+### Run frontend
 
-http-server
+* http-server
 
---===Run backend==--
+### Run backend
 
-cd backend
-python script.py
+* cd backend
+* python script.py
