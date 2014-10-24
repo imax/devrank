@@ -1,0 +1,90 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 text-left">
+			<h4>Рейтинг востребованности программистов</h4>
+		</div>
+		<div class="col-md-2 logo">
+			<a href="http://djinni.co/"><img src="http://djinni.co/static/i/logo-smaller.png"></a>
+		</div>
+	</div>
+	<br/>
+	<br/>
+	<div class="row" ng-controller="FilterCtrl" data-ng-init="init()">
+	  <div class="col-md-4">
+		<form role="form">
+		  <div class="form-group">
+		    <label for="special">Специализация</label>
+			<select class="form-control" name="special" id="special">
+			  <option ng-repeat="lang in langs">{{lang.0}}</option>
+			</select>
+		  </div>
+		  <div class="form-group">
+		    <label for="salary">Зарплата </label>
+			<select class="form-control" name="salary" id="salary">
+			  <option value="499">> $500</option>
+			  <option value="500">< $500</option>
+			  <option value="100">< $1000</option>
+			  <option value="1500">< $1500</option>
+			  <option value="2500">< $2500</option>
+			  <option value="5000">< $5000</option>
+			</select>
+		  </div>
+		  <div class="form-group text-center">
+		  	<input type="button" class="btn btn-primary" value="Поиск" ng-click="search()">
+		  </div>
+		</form>	  	
+	  </div>
+	  <div class="col-md-8">
+
+		<div class="panel panel-primary">
+	      <div class="panel-heading">
+	        <h3 class="panel-title">Среднее количетво предложений на кандидата</h3>
+	      </div>
+	      <div class="panel-body" ng-show="stats_candidate_deals">
+	        {{stats_candidate_deals.0}} работодателей, {{stats_candidate_deals.1}} предложений на кандидата
+	      </div>
+	      <div class="panel-body" ng-show="!stats_candidate_deals">
+	        Пусто
+	      </div>
+	    </div>
+
+		<div class="panel panel-primary">
+	      <div class="panel-heading">
+	        <h3 class="panel-title">ТОП наиболее активных работодателей на Джинне</h3>
+	      </div>
+	      <div class="panel-body">
+				<div class="col-sm-8">  
+				    <div class="media big-recruiter-block" ng-repeat="item in stats_top">
+				      <div class="pull-left" ng-if="item.5!=''">
+				        <img src="{{item.5}}" alt="{{item.2}}" class="media-object userpic-rounded">
+				      </div>
+				      <div class="media-body">
+				        <p class="recruiter-name recruiter-name-bigger">{{item.2}}</p>
+				        <p class="headline">{{item.2}}, {{item.3}}</p>
+				      </div>
+				    </div>
+				</div>
+				<div class="col-sm-8" ng-show="!stats_popular.length">
+					Пусто  
+				</div>
+	      </div>
+	    </div>
+
+
+		<div class="panel panel-primary">
+	      <div class="panel-heading">
+	        <h3 class="panel-title">Примеры самых успешных профилей на Джинне</h3>
+	      </div>
+	      <div class="panel-body">
+			<ul class="list-group">
+			  <li class="list-group-item" ng-repeat="item in stats_popular"><a href="{{item.3}}">{{item.1}}, {{item.2}}</a></li>
+			  <li class="list-group-item" ng-show="!stats_popular.length">Пусто</li>
+			</ul>
+	      </div>
+	    </div>
+
+
+	  </div>
+	</div>
+
+</div>
