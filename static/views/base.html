@@ -15,18 +15,18 @@
 		  <div class="form-group">
 		    <label for="special">Специализация</label>
 			<select class="form-control" name="special" id="special">
-			  <option ng-repeat="lang in langs">{{lang.0}}</option>
+			  <option ng-repeat="lang in langs" value="{{lang.0}}">{{lang.0}}</option>
 			</select>
 		  </div>
 		  <div class="form-group">
 		    <label for="salary">Зарплата </label>
 			<select class="form-control" name="salary" id="salary">
-			  <option value="499">> $500</option>
-			  <option value="500">< $500</option>
-			  <option value="100">< $1000</option>
-			  <option value="1500">< $1500</option>
-			  <option value="2500">< $2500</option>
-			  <option value="5000">< $5000</option>
+			  <option value="499">< $500</option>
+			  <option value="500">> $500</option>
+			  <option value="100">> $1000</option>
+			  <option value="1500">> $1500</option>
+			  <option value="2500">> $2500</option>
+			  <option value="5000">> $5000</option>
 			</select>
 		  </div>
 		  <div class="form-group text-center">
@@ -41,7 +41,7 @@
 	        <h3 class="panel-title">Среднее количетво предложений на кандидата</h3>
 	      </div>
 	      <div class="panel-body" ng-show="stats_candidate_deals">
-	        {{stats_candidate_deals.0}} работодателей, {{stats_candidate_deals.1}} предложений на кандидата
+	        {{stats_candidate_deals.0}} кандидаты, {{stats_candidate_deals.1}} предложений на кандидата
 	      </div>
 	      <div class="panel-body" ng-show="!stats_candidate_deals">
 	        Пусто
@@ -56,7 +56,7 @@
 				<div class="col-sm-8">  
 				    <div class="media big-recruiter-block" ng-repeat="item in stats_top">
 				      <div class="pull-left" ng-if="item.5!=''">
-				        <img src="{{item.5}}" alt="{{item.2}}" class="media-object userpic-rounded">
+				        <img ng-src="{{item.5}}" alt="{{item.2}}" class="media-object userpic-rounded">
 				      </div>
 				      <div class="media-body">
 				        <p class="recruiter-name recruiter-name-bigger">{{item.2}}</p>
